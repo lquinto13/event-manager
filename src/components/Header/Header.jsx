@@ -1,5 +1,5 @@
 import './Header.css'
-import { BellIcon, ChevronDownIcon } from '@heroicons/react/24/solid'
+import { BellIcon, ChevronDownIcon } from '@heroicons/react/24/outline'
 // import logo from '../../assets/text-logo-2.png'
 const FAKE_USER = {
   name: "Jack",

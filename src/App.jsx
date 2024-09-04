@@ -1,10 +1,17 @@
 import './App.css'
-import Dashboard from './pages/Dashboard'
+import Header from './components/Header/Header'
+import Sidebar from './components/Sidebar/Sidebar'
+import Overview from './pages/Overview'
 
 function App() {
 	return (
 	<>
-		<Dashboard/>
+		<Header />
+		<div className='main-content'>
+			<Sidebar />		
+			<Overview /> 
+		</div>
+		
 	</>
 )}
 

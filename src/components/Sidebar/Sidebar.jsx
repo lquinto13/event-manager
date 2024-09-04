@@ -1,6 +1,7 @@
 import './Sidebar.css'
 import { BoltIcon, UserPlusIcon, UsersIcon, Cog6ToothIcon, UserGroupIcon, UserCircleIcon, Square2StackIcon, SquaresPlusIcon } from '@heroicons/react/24/outline'
 import SidebarItem from './SidebarItem.jsx'
+import { useState } from 'react'
 
 
 const sidebarNav = [ 
@@ -54,11 +55,13 @@ const sidebarNav = [
 	},
 ]
 function Sidebar() {
+	const [activeNav, setIsActiveNav] = useState(null)
+
 	return (
-		<nav className="sidebar-container">
+		<nav className="sidebar-container sidebar">
 			<ul className='sidebar-item-container'>
-				{sidebarNav.map(item =>(
-					<SidebarItem  key={item.key} item={item}/>
+				{sidebarNav.map((item) =>(
+					<SidebarItem  key={item.key} item={item} activeNav={activeNav} setIsActiveNav={setIsActiveNav}/>
 				))}
 			</ul>
 		</nav>
