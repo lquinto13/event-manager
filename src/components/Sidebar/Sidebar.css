@@ -1,0 +1,31 @@
+.sidebar-container{
+	height: 100vh;
+	background-color: var(--color-primary--2);
+	width: 250px;
+	z-index: 1000;
+	box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;		
+	position: fixed; /* Fix sidebar in place */
+
+}
+
+.sidebar-item-container{
+	padding: 2.5rem 1.75rem;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+.sidebar-icon{
+	width: 20px;
+	height: 20px;
+	stroke: var(--color-text--2);
+}
+
+.nav-item{
+	color: var(--color-text--2);
+	width: 12rem;
+	display: flex;
+	align-items: center;
+	gap: 1.5rem;
+	cursor: pointer;
+}

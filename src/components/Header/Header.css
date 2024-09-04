@@ -1,0 +1,87 @@
+.header-container {
+	background-color: var(--color-primary--2);
+	color: var(--color-text--1);
+	display: flex;
+	align-items: center;
+	justify-content:space-between;
+	/* box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;	 */
+	height: 5.25rem;
+	z-index: 1100; /* Ensure header is above the sidebar */
+	border-bottom: solid #d5d5d5;
+	border-bottom-width: 1px;
+
+}
+
+.logo-container {
+	padding: 10px 40px 10px 40px;
+	display: flex;
+	justify-content: center;
+	border-bottom: solid #d5d5d5;
+	border-bottom-width: 1px;
+	height: 5.25rem;
+
+
+}
+.logo-holder{
+	  text-align:center;
+
+}
+
+
+.logo h3 {
+    color: var(--color-primary--1);
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size: 35px;
+    line-height:1.1;
+}
+
+.logo p {
+    font-size: 12px;
+    letter-spacing: 7px;
+    text-transform: uppercase;
+    color: var(--color-text--2);
+    font-weight: 600;
+}
+
+
+
+.notification-icon {
+	margin-right: 1rem; /* Add margin to the right to create space between icons */
+}
+
+.user-account-container {
+	width: 20%;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.user-avatar-container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 80%;
+	gap: 1rem;
+}
+.user-avatar {
+	height: 3.75rem;
+	border-radius: 50%; 
+}
+
+.icon-container{
+	display: flex;
+    align-items: center;    
+    width: 1.5rem;
+    height: 1.5rem; 
+}
+
+.icon{
+	    color: var(--color-primary--1);
+}
+.icon-chevron{
+	width: 20px;
+	color: var(--color-primary--1);
+	cursor: pointer;
+	
+}
