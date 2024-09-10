@@ -9,6 +9,7 @@
 	z-index: 1100; /* Ensure header is above the sidebar */
 	border-bottom: solid #d5d5d5;
 	border-bottom-width: 1px;
+	position: fixed;
 
 }
 

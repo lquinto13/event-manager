@@ -4,7 +4,6 @@ function Card({children}) {
 		<div className="card-container">
 			 <span className="card-title">{children}</span>
 			 <h2 className="card-amount">24</h2>
-			 <p>Check it Out</p>
 		</div>
 	)
 }
