@@ -6,8 +6,9 @@ const bodyParser = require('body-parser')
 const morgan = require('morgan')
 const cookieParser = require('cookie-parser')
 
-//Import Routes
-
+//IMPORT ROUTES
+const userRoutes = require('./routes/user')
+const eventRoutes = require('./routes/event')
 //Connect Database
 mongoose
 	.connect(process.env.DATABASE, {
@@ -27,7 +28,9 @@ app.use(bodyParser.json())
 app.use(cookieParser())
 
 //Middleware
-app.use('/api', userRoutes)
+app.use('/api/users', userRoutes)
+app.use('/api/events', eventRoutes)
+// app.use('/api/event_registation', eventRegistrationRoutes)
 
 const port = process.env.PORT || 5000
 app.listen(port, () => {

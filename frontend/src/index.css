@@ -1,79 +1,77 @@
 @import url('https://fonts.googleapis.com/css?family=Bangers|Cinzel:400,700,900|Lato:100,300,400,700,900|Lobster|Lora:400,700|Mansalva|Muli:200,300,400,600,700,800,900|Open+Sans:300,400,600,700,800|Oswald:200,300,400,500,600,700|Roboto:100,300,400,500,700,900&display=swap');
 
-
 :root {
 	--color-primary--1: #228ce3;
 	--color-primary--2: #f5f9ff;
 	--color-accent--0: #7fcfff;
 	--color-accent--1: #d9e8ff;
 	--color-accent--2: #7a9bc1;
-	--color-neutral--1: #E1E8ED;
-	--color-neutral--2: #EAF4FF;
-	--color-neutral--3: #FFFFFF;
-	--color-text--1: #324A5E;
-	--color-text--2: #7A869A;
-	--color-button--1: #B0D7FF;
-	--color-hover--1: #92C4FF;
+	--color-neutral--1: #e1e8ed;
+	--color-neutral--2: #eaf4ff;
+	--color-neutral--3: #ffffff;
+	--color-text--1: #324a5e;
+	--color-text--2: #7a869a;
+	--color-button--1: #b0d7ff;
+	--color-hover--1: #92c4ff;
 }
 
-
-
 * {
-  	margin: 0;
-  	padding: 0;
+	margin: 0;
+	padding: 0;
 	box-sizing: border-box;
 }
 
 html {
-	width:100%;
+	width: 100%;
 	height: 100vh;
 }
 
-
 body {
 	max-width: 100%;
-  	font-family: 'Open Sans', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	background-color: var(--color-neutral--1);
 	font-weight: 400;
 	line-height: 1.6;
 }
 
 a {
-	text-decoration:none !important;
-  	display: inline-block;
+	text-decoration: none !important;
+	display: inline-block;
 }
 
-.main-content{
+.main-content {
 	max-width: 100%;
 	display: flex;
 	flex: 1;
 }
 
 .main-content {
-  display: flex;           /* Enable Flexbox for side-by-side layout */
+	display: flex; /* Enable Flexbox for side-by-side layout */
 }
 
 /* Dashboard styles */
-.dashboard{
+.dashboard {
 	max-width: 100%;
 	width: 100%;
 	margin-top: 80px;
 	margin-left: 250px;
 	padding: 40px;
-}         
+}
 
-.title{
+.title {
 	display: flex;
 	align-items: center;
 	font-size: 1.75rem; /* Adjust size as needed */
-  	font-weight: 400; /* Make the title bold */
- 	color: var(--color-text--1); /* Dark gray color, change to your preferred color */
-  	text-align: center;
+	font-weight: 400; /* Make the title bold */
+	color: var(
+		--color-text--1
+	); /* Dark gray color, change to your preferred color */
+	text-align: center;
 	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 	gap: 12px;
 }
 
-.title-icon-container{
+.title-icon-container {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -85,10 +83,9 @@ a {
 	box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
 }
 
-.title-icon{
+.title-icon {
 	display: flex;
 	stroke: var(--color-neutral--3);
 	width: 1.5rem;
 	height: 1.5rem;
-
 }
