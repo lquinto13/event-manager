@@ -1,9 +1,10 @@
 import './App.css'
+import 'react-toastify/dist/ReactToastify.css'
 import Header from './components/Header/Header'
 import Sidebar from './components/Sidebar/Sidebar'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
-
+import { ToastContainer } from 'react-toastify'
 import Overview from './pages/Overview'
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
 const pathsWithSidebarAndHeader = [
@@ -19,28 +20,31 @@ const showHeaderAndSidebar = pathsWithSidebarAndHeader.includes(
 
 function App() {
 	return (
-		<BrowserRouter>
-			<>
-				{showHeaderAndSidebar && <Header />}
-				<div className='main-content'>
-					{showHeaderAndSidebar && <Sidebar />}
-					<Routes>
-						<Route
-							index
-							element={<Login />}
-						/>
-						<Route
-							path='signup'
-							element={<Signup />}
-						/>
-						<Route
-							path='dashboard'
-							element={<Overview />}
-						/>
-					</Routes>
-				</div>
-			</>
-		</BrowserRouter>
+		<>
+			<ToastContainer />
+			<BrowserRouter>
+				<>
+					{showHeaderAndSidebar && <Header />}
+					<div className='main-content'>
+						{showHeaderAndSidebar && <Sidebar />}
+						<Routes>
+							<Route
+								index
+								element={<Login />}
+							/>
+							<Route
+								path='signup'
+								element={<Signup />}
+							/>
+							<Route
+								path='dashboard'
+								element={<Overview />}
+							/>
+						</Routes>
+					</div>
+				</>
+			</BrowserRouter>
+		</>
 	)
 }
 

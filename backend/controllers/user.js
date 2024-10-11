@@ -1,13 +1,19 @@
 const User = require('../models/user')
 
 exports.signup = async (req, res, next) => {
-	const { email } = req.body
+	const { email, password, confirm_password } = req.body
 	const userExist = await User.findOne({ email })
-
+	const passwordSimilar = password === confirm_password
 	if (userExist) {
 		return res
 			.status(400)
 			.json({ success: false, message: 'Email already exists' })
+	}
+
+	if (!passwordSimilar) {
+		return res
+			.status(400)
+			.json({ success: false, message: 'Password is not the same!' })
 	}
 
 	try {
@@ -18,7 +24,7 @@ exports.signup = async (req, res, next) => {
 		})
 	} catch (err) {
 		console.log(err)
-		res.status(400).json({ succss: false, message: err.message })
+		res.status(400).json({ success: false, message: err.message })
 	}
 }
 
