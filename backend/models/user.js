@@ -44,7 +44,7 @@ const userSchema = new mongoose.Schema(
 		},
 		birthdate: {
 			type: Date,
-			required: [true, `Please add your birthdate`],
+			// required: [true, `Please add your birthdate`],
 		},
 		contact_number: {
 			type: Number,

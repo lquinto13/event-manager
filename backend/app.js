@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
 const cookieParser = require('cookie-parser')
-
+const cors = require('cors')
 //IMPORT ROUTES
 const userRoutes = require('./routes/user')
 const eventRoutes = require('./routes/event')
@@ -26,10 +26,12 @@ mongoose
 app.use(morgan('dev'))
 app.use(bodyParser.json())
 app.use(cookieParser())
+app.use(cors())
 
 //Middleware
 app.use('/api/users', userRoutes)
 app.use('/api/events', eventRoutes)
+
 // app.use('/api/event_registation', eventRegistrationRoutes)
 
 const port = process.env.PORT || 5000
