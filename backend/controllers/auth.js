@@ -1,19 +1,16 @@
 const User = require('../models/user')
+const ErrorResponse = require('../utils/errorResponse')
 
 exports.signup = async (req, res, next) => {
 	const { email, password, confirm_password } = req.body
 	const userExist = await User.findOne({ email })
 	const passwordSimilar = password === confirm_password
 	if (userExist) {
-		return res
-			.status(400)
-			.json({ success: false, message: 'Email already exists' })
+		next(new ErrorResponse('E-mail already exists', 400))
 	}
 
 	if (!passwordSimilar) {
-		return res
-			.status(400)
-			.json({ success: false, message: 'Password is not the same!' })
+		next(new ErrorResponse('Password is different', 400))
 	}
 
 	try {
@@ -32,37 +29,43 @@ exports.signin = async (req, res, next) => {
 	try {
 		const { email, password } = req.body
 		if (!email || !password) {
-			return res.status(400).json({
-				success: false,
-				message: 'Email and password are required fields',
-			})
+			next(new ErrorResponse('E-mail and password are required', 400))
 		}
 
 		const user = await User.findOne({ email })
 		if (!user) {
-			return res
-				.status(400)
-				.json({ success: false, message: 'User credentials are incorrect' })
+			next(new ErrorResponse('Invalid credentials', 400))
 		}
 
 		const isMatch = await user.comparePassword(password)
 		if (!isMatch) {
-			return res.status(400).json({
-				success: false,
-				message: 'Password is incorrect',
-			})
+			next(new ErrorResponse('Password is incorrect', 400))
 		}
 
 		const token = await user.jwtGenerateToken()
 
 		generateToken(user, 200, res)
 	} catch (err) {
-		console.log(err)
-		return res.status(400).json({
-			success: false,
-			message: 'Cannot login check your credentials',
-		})
+		next(new ErrorResponse('Cannot login check your credentials', 400))
 	}
+}
+
+exports.logout = (req, res, next) => {
+	res.clearCookie('token')
+	res.status(200),
+		json({
+			success: true,
+			message: 'logged out',
+		})
+}
+
+//Users Profile
+exports.userProfile = async (req, res, next) => {
+	const user = await User.findById(req.user.id)
+	res.status(200).json({
+		success: true,
+		user,
+	})
 }
 
 const generateToken = async (user, status, res) => {

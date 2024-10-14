@@ -7,7 +7,7 @@ const morgan = require('morgan')
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
 //IMPORT ROUTES
-const userRoutes = require('./routes/user')
+const authRoutes = require('./routes/auth')
 const eventRoutes = require('./routes/event')
 //Connect Database
 mongoose
@@ -29,7 +29,7 @@ app.use(cookieParser())
 app.use(cors())
 
 //Middleware
-app.use('/api/users', userRoutes)
+app.use('/api/auth', authRoutes)
 app.use('/api/events', eventRoutes)
 
 // app.use('/api/event_registation', eventRegistrationRoutes)

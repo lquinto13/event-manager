@@ -16,6 +16,7 @@ function Signup() {
 		contact_number: '',
 	})
 	const navigate = useNavigate()
+
 	const {
 		first_name,
 		last_name,

@@ -1,8 +1,42 @@
+import { useState } from 'react'
 import Input from '../components/Input/Input'
 import './Login.css'
+import axios from 'axios'
+
 import { NavLink } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 function Login() {
+	const [values, setValues] = useState({
+		email: '',
+		password: '',
+	})
+
+	const { email, password } = values
+	const handleChange = (name) => (e) => {
+		console.log(e.target.value)
+		setValues({ ...values, [name]: e.target.value })
+	}
+
+	const handleSubmitLogin = async (e) => {
+		e.preventDefault()
+		try {
+			const signIn = await axios.post('api/users/signin', {
+				email,
+				password,
+			})
+			if (signIn.data.success === true) {
+				setValues({
+					email: '',
+					password: '',
+				})
+			}
+			toast.success('Succesfully Login')
+		} catch (err) {
+			console.log(err.response.data.message)
+			toast.error(err.response.data.message)
+		}
+	}
 	return (
 		<div className='login-container'>
 			<div className='login-box'>
@@ -16,16 +50,18 @@ function Login() {
 				</div>
 				<Input
 					placeholder={'Email'}
+					onChange={handleChange('email')}
 					type={'text'}
 				/>
 				<Input
 					placeholder={'Password'}
+					onChange={handleChange('password')}
 					type={'password'}
 				/>
 
 				<button
 					className='btn-submit'
-					type='submit'>
+					onClick={handleSubmitLogin}>
 					Login
 				</button>
 
