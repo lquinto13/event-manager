@@ -46,8 +46,8 @@ function Login() {
 					<h1>Login</h1>
 					
 					<div className='login-fields'>
-						<Input placeholder={"Email"} />
-						<Input placeholder={"Password"} type={"password"}/>
+						<Input placeholder={"Email"} type={'text'} onChange={'email'} />
+						<Input placeholder={"Password"} type={"password"} onChange={handleChange('password')}/>
 						<div className='login-fields-sub'>
 							<label>
       							<input type="checkbox"  name="remember"/> Remember me
@@ -57,7 +57,7 @@ function Login() {
 					</div>
 					<div className='sign-in-container'>
 						<button className='sign-in'>Sign In</button>
-						<span>Dont have an account? Sign up</span>
+						<span>Dont have an account? <NavLink to='signup'>Sign up</NavLink></span>
 					</div>
 				</div>
 			</div>

@@ -2,15 +2,10 @@ const User = require('../models/user')
 const ErrorResponse = require('../utils/errorResponse')
 
 exports.signup = async (req, res, next) => {
-	const { email, password, confirm_password } = req.body
+	const { email, password } = req.body
 	const userExist = await User.findOne({ email })
-	const passwordSimilar = password === confirm_password
 	if (userExist) {
 		next(new ErrorResponse('E-mail already exists', 400))
-	}
-
-	if (!passwordSimilar) {
-		next(new ErrorResponse('Password is different', 400))
 	}
 
 	try {

@@ -42,6 +42,7 @@ input {
 }
 
 .effect ~ label {
+	pointer-events: none;
 	position: absolute;
 	left: 15px;
 	top: 20px;
