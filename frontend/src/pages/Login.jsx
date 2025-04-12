@@ -2,8 +2,7 @@ import { useState } from 'react'
 import Input from '../components/Input/Input'
 import './Login.css'
 import axios from 'axios'
-
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 function Login() {
@@ -11,8 +10,9 @@ function Login() {
 		email: '',
 		password: '',
 	})
-
 	const { email, password } = values
+	const navigate = useNavigate()
+
 	const handleChange = (name) => (e) => {
 		console.log(e.target.value)
 		setValues({ ...values, [name]: e.target.value })
@@ -21,17 +21,23 @@ function Login() {
 	const handleSubmitLogin = async (e) => {
 		e.preventDefault()
 		try {
-			const signIn = await axios.post('api/users/signin', {
+			const { data } = await axios.post('api/auth/signin', {
 				email,
 				password,
 			})
-			if (signIn.data.success === true) {
+			console.log(email, password)
+			if (data.success === true) {
 				setValues({
 					email: '',
 					password: '',
 				})
 			}
-			toast.success('Succesfully Login')
+			if (data.success === true) {
+				toast.success('Succesfully Login')
+				navigate('/overview')
+				if (typeof window !== 'undefined')
+					localStorage.setItem('token', JSON.stringify(data))
+			}
 		} catch (err) {
 			console.log(err.response.data.message)
 			toast.error(err.response.data.message)
