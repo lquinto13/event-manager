@@ -2,9 +2,12 @@ import './App.css'
 import 'react-toastify/dist/ReactToastify.css'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
+import ProtectedRoute from '../src/components/ProtectedRoute/ProtectedRoute'
+
 import { ToastContainer } from 'react-toastify'
 import Overview from './pages/Overview'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import PublicRoute from './components/PublicRoute/PublicRoute'
 
 function App() {
 	return (
@@ -15,15 +18,27 @@ function App() {
 					
 						<Route
 							index
-							element={<Login />}
+							element={
+								<PublicRoute>
+									<Login />
+								</PublicRoute>
+							}
 						/>
 						<Route
 							path='signup'
-							element={<Signup />}
+							element={
+								<PublicRoute>
+									<Signup />
+								</PublicRoute>
+								}
 						/>
 						<Route
-							path='dashboard'
-							element={<Overview />}
+							path='overview'
+							  element={
+            						<ProtectedRoute>
+										<Overview />
+            						</ProtectedRoute>
+          						} 
 						/>
 					
 				</Routes>

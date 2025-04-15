@@ -45,47 +45,4 @@ a {
 	flex: 1;
 }
 
-.main-content {
-	display: flex; /* Enable Flexbox for side-by-side layout */
-}
 
-/* Dashboard styles */
-.dashboard {
-	max-width: 100%;
-	width: 100%;
-	margin-top: 80px;
-	margin-left: 250px;
-	padding: 40px;
-}
-
-.title {
-	display: flex;
-	align-items: center;
-	font-size: 1.75rem; /* Adjust size as needed */
-	font-weight: 400; /* Make the title bold */
-	color: var(
-		--color-text--1
-	); /* Dark gray color, change to your preferred color */
-	text-align: center;
-	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-	gap: 12px;
-}
-
-.title-icon-container {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background-color: var(--color-primary--1);
-	width: 2.5rem;
-	height: 2.5rem;
-	border: 2px var(--color-primary--1) solid;
-	border-radius: 5px;
-	box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
-}
-
-.title-icon {
-	display: flex;
-	stroke: var(--color-neutral--3);
-	width: 1.5rem;
-	height: 1.5rem;
-}

@@ -26,8 +26,10 @@ mongoose
 app.use(morgan('dev'))
 app.use(bodyParser.json())
 app.use(cookieParser())
-app.use(cors())
-
+app.use(cors({
+  origin: 'http://localhost:3000',  // your React app URL
+  credentials: true,               // Allow cookies and credentials
+}));
 //Middleware
 app.use('/api/auth', authRoutes)
 app.use('/api/events', eventRoutes)
