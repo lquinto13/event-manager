@@ -1,48 +1,47 @@
 import './App.css'
 import 'react-toastify/dist/ReactToastify.css'
-import Header from './components/Header/Header'
-import Sidebar from './components/Sidebar/Sidebar'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
+import ProtectedRoute from '../src/components/ProtectedRoute/ProtectedRoute'
+
 import { ToastContainer } from 'react-toastify'
 import Overview from './pages/Overview'
-import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
-const pathsWithSidebarAndHeader = [
-	'/dashboard',
-	'/overview',
-	'/settings',
-	'/profile',
-	'/reports',
-]
-const showHeaderAndSidebar = pathsWithSidebarAndHeader.includes(
-	location.pathname
-)
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import PublicRoute from './components/PublicRoute/PublicRoute'
 
 function App() {
 	return (
 		<>
 			<ToastContainer />
 			<BrowserRouter>
-				<>
-					{showHeaderAndSidebar && <Header />}
-					<div className='main-content'>
-						{showHeaderAndSidebar && <Sidebar />}
-						<Routes>
-							<Route
-								index
-								element={<Login />}
-							/>
-							<Route
-								path='signup'
-								element={<Signup />}
-							/>
-							<Route
-								path='dashboard'
-								element={<Overview />}
-							/>
-						</Routes>
-					</div>
-				</>
+				<Routes>
+					
+						<Route
+							index
+							element={
+								<PublicRoute>
+									<Login />
+								</PublicRoute>
+							}
+						/>
+						<Route
+							path='signup'
+							element={
+								<PublicRoute>
+									<Signup />
+								</PublicRoute>
+								}
+						/>
+						<Route
+							path='overview'
+							  element={
+            						<ProtectedRoute>
+										<Overview />
+            						</ProtectedRoute>
+          						} 
+						/>
+					
+				</Routes>
 			</BrowserRouter>
 		</>
 	)

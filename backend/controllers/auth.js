@@ -63,6 +63,21 @@ exports.userProfile = async (req, res, next) => {
 	})
 }
 
+exports.checkAuth = (req, res) => {
+	// If user is authenticated, `req.user` will exist
+	if (req.user) {
+		return res.status(200).json({
+			success: true,
+			message: 'Authenticated',
+			user: req.user, // Send user details
+		});
+	} else {
+		return res.status(401).json({ success: false, message: 'Not authenticated' });
+	}
+};
+
+
+
 const generateToken = async (user, status, res) => {
 	const token = await user.jwtGenerateToken()
 	const options = {
