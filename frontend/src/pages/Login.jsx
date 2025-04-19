@@ -5,6 +5,7 @@ import axios from 'axios'
 import beach from '../assets/beach-login.jpg'
 import { NavLink } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
 
 function Login() {
 	const [values, setValues] = useState({
@@ -53,7 +54,7 @@ function Login() {
 					<h1>Login</h1>
 					
 					<div className='login-fields'>
-						<Input placeholder={"Email"} type={'text'} onChange={'email'} />
+						<Input placeholder={"Email"} type={'text'} onChange={handleChange('email')} />
 						<Input placeholder={"Password"} type={"password"} onChange={handleChange('password')}/>
 						<div className='login-fields-sub'>
 							<label>
@@ -63,7 +64,7 @@ function Login() {
 						</div>
 					</div>
 					<div className='sign-in-container'>
-						<button className='sign-in'>Sign In</button>
+						<button className='sign-in' onClick={handleSubmitLogin}>Sign In</button>
 						<span>Dont have an account? <NavLink to='signup'>Sign up</NavLink></span>
 					</div>
 				</div>
