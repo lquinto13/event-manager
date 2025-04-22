@@ -1,74 +1,85 @@
 .login-container {
-	background-color: var(--color-primary--1);
+	background-color: #a8d6ec;
 	width: 100%;
 	height: 100vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	font-family: "Merriweather Sans", sans-serif;
 }
 
 .login-box {
 	display: flex;
-	flex-direction: column;
 	align-items: center;
 	gap: 20px;
 	width: 1200px;
 	height: 600px;
-	background-color: var(--color-accent--1);
-	border-radius: 16px;
+	background-color: #f4f0f0;
+	border-radius: 36px;
 	padding: 16px;
+	filter: drop-shadow(0px 4px 4px #00000040 );
 	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
 		rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 
-.login-logo-container {
-	padding: 10px 40px 10px 40px;
+.login-photo{
+	width:690px;
+	height: 560px;
+	border-radius: 36px;
+}
+
+.login-form{
 	display: flex;
+	flex-direction: column;
+	padding: 60px;
+	width:465px;
+	height: 560px;
+	background-color: #CBE8F6;
+	border-radius: 36px;
+
+}
+
+.login-fields{
+	margin-top: 2.75rem;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	font-weight: 100;
+}
+
+.login-fields-sub{
+	margin-top: -6px;
+	font-size: small;
+	display: flex;
+	justify-content: space-between;
+}
+.login-form h1{
+	font-weight: 400;
+	font-size: xx-large;
+}
+
+.sign-in-container{
+	display: flex;
+	flex-direction: column;
 	justify-content: center;
-	height: 8.25rem;
+	align-items: center;
 }
 
-.login-logo-holder {
-	text-align: center;
-}
 
-.login-logo h3 {
-	color: var(--color-primary--1);
-	font-family: 'Oswald', sans-serif;
-	font-weight: 300;
-	font-size: 75px;
-	line-height: 1.1;
-}
-
-.login-logo p {
-	font-size: 12px;
-	letter-spacing: 7px;
-	text-transform: uppercase;
-	color: var(--color-primary--1);
-	font-weight: 600;
-}
-
-.btn-submit {
-	width: 5rem;
-	height: 2.25rem;
-	border-radius: 10px;
+.sign-in{
+	margin-top: 3.25rem;
 	outline: none;
 	border: none;
+	padding: 10px;
+	border-radius: 16px;
 	color: white;
-	background-color: var(--color-primary--1);
-	align-self: flex-start;
+	width: 16rem;
+	font-size: 18px;
+	background-color: #E58877;
 }
 
-.btn-submit:active {
-	background-color: var(--color-accent--0);
+.sign-in-container span{
+	font-size: small;
+	font-weight: 100;
 }
-
-.sign-up {
-	align-self: flex-start;
-	margin-left: 65px;
-}
-
-.signup-click {
-	color: var(--color-primary--1);
-	cursor: pointer;
-}
+ 

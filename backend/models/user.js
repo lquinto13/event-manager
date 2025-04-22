@@ -19,12 +19,6 @@ const userSchema = new mongoose.Schema(
 			required: [true, `Please add last name`],
 			maxlength: 32,
 		},
-		username: {
-			type: String,
-			trim: true,
-			required: [true, `Please add a username`],
-			maxlength: 32,
-		},
 		email: {
 			type: String,
 			trim: true,
@@ -41,18 +35,6 @@ const userSchema = new mongoose.Schema(
 				PASSWORD_REGEX,
 				'Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character',
 			],
-		},
-		birthdate: {
-			type: Date,
-			// required: [true, `Please add your birthdate`],
-		},
-		contact_number: {
-			type: String,
-			required: [true, `Please add your contact number`],
-		},
-		address: {
-			type: String,
-			required: [true, `Please add your address`],
 		},
 	},
 	{ timestamps: true }

@@ -2,8 +2,10 @@ import { useState } from 'react'
 import Input from '../components/Input/Input'
 import './Login.css'
 import axios from 'axios'
-import { NavLink, useNavigate } from 'react-router-dom'
+import beach from '../assets/beach-login.jpg'
+import { NavLink } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
 
 function Login() {
 	const [values, setValues] = useState({
@@ -46,38 +48,25 @@ function Login() {
 	return (
 		<div className='login-container'>
 			<div className='login-box'>
-				<div className='login-logo-container'>
-					<div className='login-logo login-logo-holder'>
-						<a href=''>
-							<h3>EVENTSYS</h3>
-							<p>Lets Plan It</p>
-						</a>
+				<img src={beach} className='login-photo'/>
+					
+				<div className='login-form'>
+					<h1>Login</h1>
+					
+					<div className='login-fields'>
+						<Input placeholder={"Email"} type={'text'} onChange={handleChange('email')} />
+						<Input placeholder={"Password"} type={"password"} onChange={handleChange('password')}/>
+						<div className='login-fields-sub'>
+							<label>
+      							<input type="checkbox"  name="remember"/> Remember me
+    						</label>
+							<span>Forgot Password?</span>
+						</div>
 					</div>
-				</div>
-				<Input
-					placeholder={'Email'}
-					onChange={handleChange('email')}
-					type={'text'}
-				/>
-				<Input
-					placeholder={'Password'}
-					onChange={handleChange('password')}
-					type={'password'}
-				/>
-
-				<button
-					className='btn-submit'
-					onClick={handleSubmitLogin}>
-					Login
-				</button>
-
-				<div className='sign-up'>
-					<p>
-						Don't have an account?{' '}
-						<NavLink to='/signup'>
-							<span className='signup-click'> Sign Up Here</span>
-						</NavLink>
-					</p>
+					<div className='sign-in-container'>
+						<button className='sign-in' onClick={handleSubmitLogin}>Sign In</button>
+						<span>Dont have an account? <NavLink to='signup'>Sign up</NavLink></span>
+					</div>
 				</div>
 			</div>
 		</div>
