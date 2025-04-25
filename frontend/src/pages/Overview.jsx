@@ -5,11 +5,14 @@ import {
 	UserIcon,
 	BanknotesIcon,
 	CogIcon,
-	ChevronUpIcon	
+	ChevronUpIcon,
+	ExclamationCircleIcon
 } from '@heroicons/react/24/outline'
 import axios from 'axios'
 import { toast } from 'react-toastify'
+import { useState } from 'react'
 function Dashboard() {
+	const [events, setEvents] = useState([23])
 	const navigate = useNavigate()
 
 	const handleLogout =  () => {
@@ -23,6 +26,8 @@ function Dashboard() {
 		 })
 				
 	}
+
+
 	return (
 		<main className="dashboard"> 
 			<div className='dashboard-border'>
@@ -51,7 +56,33 @@ function Dashboard() {
 							<ChevronUpIcon className='chevron'/>
 						</div>
 					</div>
-					<div className='dashboard-content'></div>
+					<div className='dashboard-content'>
+						<input placeholder='Search Event'></input>
+						<div className='content-filter'>
+							<button className='filter-active'>Hosted Events</button>
+							<button>Joined Events</button>
+						</div>
+						<div className='content-container'>
+							{!events.length ? 
+							<div className='empty-content'> 				
+								<ExclamationCircleIcon className='empty-icon'/>
+								<h2>There are no events here</h2>
+							</div> : 
+							<div className='content-cards-container'>  
+								<div className='content-cards'> 
+									<div className='faux-image'> </div>
+
+									<div className='cards-text'> 
+										<span>Friday January 13, 2025</span>
+										<h2>My Event Name</h2>
+										<p>Event description that people will put just for fun because i like writing things for description and making it long please continue</p> 
+									</div>
+									
+								</div>
+							</div>
+							}
+						</div>
+					</div>
 				</div>
 			</div>
 		
