@@ -2,11 +2,6 @@ const mongoose = require('mongoose')
 
 const eventSchema = new mongoose.Schema(
 	{
-		// user: {
-		// 	type: mongoose.Schema.Types.ObjectId,
-		// 	ref: 'User',
-		// 	required: true,
-		// },
 		name: {
 			type: String,
 			trim: true,
@@ -21,23 +16,41 @@ const eventSchema = new mongoose.Schema(
 			type: Date,
 			required: true,
 		},
-		tickets: {
-			type: Number,
-			required: true,
-		},
 		status: {
 			type: String,
 			enum: ['upcoming', 'ongoing', 'completed', 'canceled'],
 			default: 'upcoming',
 		},
-		start_time: {
-			type: Date,
-			required: true,
+		inviteCode:{
+			type:String,
+			required:true
 		},
-		end_time: {
-			type: Date,
-			required: true,
-		},
+		paymentDetails:{
+			preferredMethod:{
+				type:String,
+				enum:['bank transfer', 'cash', 'mobile payment'],
+				default:'bank transfer'
+			},
+			details:{
+				accountNumber:{
+					type:String,
+					required:true
+				},
+				bankDetails:{
+					type:String,
+					required:true
+				},
+				holderName:{
+					type:String,
+					required:true
+				}
+			},
+			qrCode:{
+				imageUrl:String,
+				uploadDate: Date,
+				description: String
+			}
+		}
 	},
 	{ timestamps: true }
 )
