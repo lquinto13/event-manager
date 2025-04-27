@@ -27,8 +27,8 @@ app.use(morgan('dev'))
 app.use(bodyParser.json())
 app.use(cookieParser())
 app.use(cors({
-  origin: 'http://localhost:3000',  // your React app URL
-  credentials: true,               // Allow cookies and credentials
+  origin: 'http://localhost:3000',  
+  credentials: true,              
 }));
 //Middleware
 app.use('/api/auth', authRoutes)
