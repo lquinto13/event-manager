@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Bangers|Merriweather+Sans:300,400,700,900|Cinzel:400,700,900|Lato:100,300,400,700,900|Lobster|Lora:400,700|Mansalva|Muli:200,300,400,600,700,800,900|Open+Sans:300,400,600,700,800|Oswald:200,300,400,500,600,700|Roboto:100,300,400,500,700,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Bangers|Merriweather+Sans:300,400,700,900|Amatic+SC:700|Lato:100,300,400,700,900|Lobster|Lora:400,700|Mansalva|Muli:200,300,400,600,700,800,900|Open+Sans:300,400,600,700,800|Oswald:200,300,400,500,600,700|Roboto:100,300,400,500,700,900&display=swap');
 
 :root {
 	--color-primary--1: #228ce3;
@@ -21,6 +21,20 @@
 	box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5{
+	font-size: 1rem;
+}
+
 html {
 	width: 100%;
 	height: 100vh;
@@ -29,7 +43,7 @@ html {
 body {
 	max-width: 100%;
 	font-family: 'Open Sans', sans-serif;
-	background-color: var(--color-neutral--1);
+	background-color: #CBE8F6;
 	font-weight: 400;
 	line-height: 1.6;
 }
@@ -45,4 +59,8 @@ a {
 	flex: 1;
 }
 
+button{
+	cursor: pointer;
+
+}
 

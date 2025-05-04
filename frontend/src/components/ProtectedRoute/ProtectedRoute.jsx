@@ -15,8 +15,7 @@ function ProtectedRoute({children}) {
 	},[])
 
 	if (isAuthenticated === null) {
-		// You can show a loading spinner or nothing
-		return "LOADINGG"
+		return "LOADING"
 	}
 
 	return isAuthenticated ? children : <Navigate to="/" replace />;

@@ -24,30 +24,30 @@ exports.signin = async (req, res, next) => {
 	try {
 		const { email, password } = req.body
 		if (!email || !password) {
-			next(new ErrorResponse('E-mail and password are required', 400))
+			return next(new ErrorResponse('E-mail and password are required', 400))
 		}
 
 		const user = await User.findOne({ email })
 		if (!user) {
-			next(new ErrorResponse('Invalid credentials', 400))
+			return next(new ErrorResponse('Invalid credentials', 400))
 		}
 
 		const isMatch = await user.comparePassword(password)
 		if (!isMatch) {
-			next(new ErrorResponse('Password is incorrect', 400))
+			return next(new ErrorResponse('Password is incorrect', 400))
 		}
 
 		const token = await user.jwtGenerateToken()
 
 		generateToken(user, 200, res)
 	} catch (err) {
-		next(new ErrorResponse('Cannot login check your credentials', 400))
+		return next(new ErrorResponse('Cannot login check your credentials', 400))
 	}
 }
 
 exports.logout = (req, res, next) => {
 	res.clearCookie('token')
-	res.status(200),
+	res.status(200).
 		json({
 			success: true,
 			message: 'logged out',
