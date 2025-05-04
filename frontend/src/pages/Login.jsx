@@ -27,18 +27,19 @@ function Login() {
 				email,
 				password,
 			})
-			console.log(email, password)
 			if (data.success === true) {
+				
+			}
+			if (data.success === true) {
+				localStorage.setItem('token', JSON.stringify(data))
+				toast.success('Succesfully Login')
 				setValues({
 					email: '',
 					password: '',
 				})
-			}
-			if (data.success === true) {
-				toast.success('Succesfully Login')
 				navigate('/overview')
-				if (typeof window !== 'undefined')
-					localStorage.setItem('token', JSON.stringify(data))
+
+					
 			}
 		} catch (err) {
 			console.log(err.response.data.message)
