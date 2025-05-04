@@ -33,14 +33,6 @@ function App() {
 								</PublicRoute>
 								}
 						/>
-						{/* <Route
-							path='overview'
-							  element={
-            						<ProtectedRoute>
-										<Overview />
-            						</ProtectedRoute>
-          						} 
-						/> */}
 						 <Route element={<ProtectedRoute>	
 								<AppLayout/>
 							</ProtectedRoute>}>

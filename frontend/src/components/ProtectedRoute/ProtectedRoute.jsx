@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Navigate, Outlet} from 'react-router-dom'
+import {Navigate} from 'react-router-dom'
 import axios from 'axios'
 
 function ProtectedRoute({children}) {
@@ -15,8 +15,7 @@ function ProtectedRoute({children}) {
 	},[])
 
 	if (isAuthenticated === null) {
-		// You can show a loading spinner or nothing
-		return "LOADINGG"
+		return "LOADING"
 	}
 
 	return isAuthenticated ? children : <Navigate to="/" replace />;
